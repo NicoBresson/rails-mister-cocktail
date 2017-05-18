@@ -8,7 +8,12 @@
   <% end %>
 </ul>
 
-
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <p>Add a new dose for <%= @cocktail.name %></p>
+  <%= f.association :ingredient, collection: Ingredient.order('name ASC')  %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
 
 
 <%= link_to "Add dose", new_cocktail_dose_path(@cocktail),{class:"btn btn-primary"}%>

@@ -13,3 +13,13 @@
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-image: url('http://gph.is/2m65e0I');
+}
+
+.container {
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+}
