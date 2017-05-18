@@ -1,3 +1,5 @@
+ruby '2.3.3'
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -38,6 +40,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
