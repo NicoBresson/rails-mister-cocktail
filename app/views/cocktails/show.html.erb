@@ -1,18 +1,23 @@
 <h3><%= @cocktail.name %></h3>
+<% if @cocktail.photos? %>
+<% @cocktail.photos.each do |photo| %>
+<%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+<% end %>
 <ul>
   <% @cocktail.doses.each do |dose| %>
   <li>
-  <%= dose.description %> |
+    <%= dose.description %> |
     <%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose), method: 'delete'%>
   </li>
   <% end %>
 </ul>
 
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <p>Add a new dose for <%= @cocktail.name %></p>
-  <%= f.association :ingredient, collection: Ingredient.order('name ASC')  %>
-  <%= f.input :description %>
-  <%= f.submit %>
+<p>Add a new dose for <%= @cocktail.name %></p>
+<%= f.association :ingredient, collection: Ingredient.order('name ASC')  %>
+<%= f.input :description %>
+<%= f.submit %>
 <% end %>
 
 
