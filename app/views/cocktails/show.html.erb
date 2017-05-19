@@ -1,7 +1,7 @@
 <h3><%= @cocktail.name %></h3>
 <% if @cocktail.photos? %>
 <% @cocktail.photos.each do |photo| %>
-<%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<%= cl_image_tag(photo.path, width: 300, height: 200, crop: :fill) %>
 <% end %>
 <% end %>
 <ul>
